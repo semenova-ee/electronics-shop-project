@@ -85,12 +85,20 @@ class Item:
 
     @staticmethod
     def string_to_number(s: str) -> int:
+        """
+        Получает строку
+        Выводит значение в виде целого числа
+        """
         return int(float(s))
 
     def __add__(self, other):
+        """
+        Складывает экземпляры класса (количество товара в магазине) `Phone` и `Item`
+        Выполняет проверку, чтобы нельзя было сложить `Phone` или `Item` с экземплярами не `Phone` или `Item` классов.
+        """
+
         if isinstance(other, Item):
             combined_quantity = self.quantity + other.quantity
             return combined_quantity
         else:
             raise TypeError("Unsupported operand type for +")
-
